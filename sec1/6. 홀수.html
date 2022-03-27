@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer=[];
+                let odd = arr.filter(num => {
+                    if (num % 2 !== 0) return num
+                });
+                let sum = 0;
+                for (let el of odd) {
+                    sum += el
+                }
+                let min = Math.min(...odd)
+                answer = [sum, min]
+                return answer;
+            }
+            
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
