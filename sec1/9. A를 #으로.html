@@ -7,7 +7,10 @@
         <script>
             function solution(s){
                 let answer="";
-                
+                for (let i = 0; i < s.length; i++) {
+                    if (s[i] === 'A') answer+='#'
+                    else answer += s[i]
+                }
                 return answer;
             }
             
@@ -15,7 +18,7 @@
             console.log(solution(str));
         </script>
     </body>
-</html>
+</html> 
 
 
 
@@ -28,7 +31,7 @@
         <script>
             function solution(s){
                 let answer;
-                
+                answer = s.replace(/\A/g, '#')
                 return answer;
             }
             

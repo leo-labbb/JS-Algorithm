@@ -7,6 +7,19 @@
         <script>
             function solution(arr){
                 let answer;
+                let sum = arr.reduce((a,b) => a+b, 0);
+                let other = [];
+                for (let i=0; i < arr.length; i++) {
+                    for (let j = i+1; j < arr.length; j++) {
+                        if (arr[i]+arr[j] === sum-100) {
+                            other.push(arr[i])
+                            other.push(arr[j])
+                        }
+                    }
+                }
+                answer = arr.filter(el => {
+                    if (el !== other[0] && el !== other[1]) return el
+                })
                 
                 return answer;
             }
