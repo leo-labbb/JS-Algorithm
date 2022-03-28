@@ -7,8 +7,9 @@
         <script>
             function solution(s){  
                 let answer="";
-                
-                return answer;
+                s = s.split('')
+                answer = [...new Set(s)]
+                return answer.join('')
             }
             console.log(solution("ksekkset"));
         </script>
