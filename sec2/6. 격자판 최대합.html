@@ -1,21 +1,59 @@
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>출력결과</title>
     </head>
     <body>
         <script>
-            function solution(arr){  
-                let answer=Number.MIN_SAFE_INTEGER;
-                
+            function solution(arr) {
+                let answer = Number.MIN_SAFE_INTEGER;
+                // 각 가로의 합, 각 세로의 합, 두 대각선의 합
+                let y = arr.length,
+                    x = arr.length,
+                    N = arr.length;
+                // 가로의 합 중 최대 찾기
+                let rows = [];
+                for (let x of arr) {
+                    rows.push(x.reduce((a, b) => a + b));
+                }
+                let maxRow = Math.max(...rows);
+                // 세로의 합 중 최대 찾기
+                let cols = [];
+                let col = [];
+                for (let x = 0; x < N; x++) {
+                    for (let y = 0; y < N; y++) {
+                        col.push(arr[y][x]);
+                    }
+                    cols.push(col.reduce((a, b) => a + b));
+                    col = [];
+                }
+                let maxCol = Math.max(...cols);
+                // 대각선 2개 중 최대 찾기
+                // 1. 좌상에서 우하로 가는 대각선
+                let leftUp = [];
+                for (let i = 0; i < N; i++) {
+                    leftUp.push(arr[i][i]);
+                }
+                leftUp = leftUp.reduce((a, b) => a + b);
+                // 2. 우상에서 좌하로 가는 대각선
+                let rightUp = [];
+                for (let i = N - 1; i >= 0; i--) {
+                    rightUp.push(arr[N - 1 - i][i]);
+                }
+                rightUp = rightUp.reduce((a, b) => a + b);
+                let result = [leftUp, rightUp, maxRow, maxCol];
+                answer = Math.max(...result);
+
                 return answer;
             }
 
-            let arr=[[10, 13, 10, 12, 15], 
-                     [12, 39, 30, 23, 11],
-                     [11, 25, 50, 53, 15],
-                     [19, 27, 29, 37, 27],
-                     [19, 13, 30, 13, 19]];
+            let arr = [
+                [10, 13, 10, 12, 15],
+                [12, 39, 30, 23, 11],
+                [11, 25, 50, 53, 15],
+                [19, 27, 29, 37, 27],
+                [19, 13, 30, 13, 19],
+            ];
             console.log(solution(arr));
         </script>
     </body>

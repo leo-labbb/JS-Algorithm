@@ -6,8 +6,13 @@
     <body>
         <script>
             function solution(arr){  
+                let answer = [];
                 let n=arr.length;
-                 
+                let copyArr = arr.slice().sort((a,b)=>b-a); // copyArr=[100,92,89,87,76];
+                copyArr.unshift(0); // copyArr=[0,100,92,89,87,76];
+                answer = arr.map(x => {
+                    return copyArr.indexOf(x)
+                })
                 return answer;
             }
 

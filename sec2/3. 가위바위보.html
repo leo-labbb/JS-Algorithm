@@ -6,8 +6,15 @@
     <body>
         <script>
             function solution(a, b){         
+                // 1: 가위 2: 바위 3: 보 
                 let answer="";
-                
+                for (let i = 0; i < a.length; i++) {
+                    let A = a[i], B = b[i];
+                    if (A === B) answer += 'D';
+                    else if (A === 2 && B === 1 || A === 3 && B === 2 || A === 1 && B === 3) {
+                        answer += 'A'
+                    } else answer += 'B'
+                }
                 
                 return answer;
             }
