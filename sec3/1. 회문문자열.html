@@ -1,41 +1,43 @@
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>출력결과</title>
     </head>
     <body>
         <script>
-            function solution(s){
-                let answer="YES";
-                
+            function solution(s) {
+                let answer = 'YES',
+                    s = s.toLowerCase();
+                word === word.split('').reverse().join('')
+                    ? (answer = 'YES')
+                    : (answer = 'NO');
                 return answer;
             }
-            
-            let str="goooG";
+            let str = 'goooooG';
             console.log(solution(str));
         </script>
     </body>
 </html>
 
-
-<!-- <html>
+<html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>출력결과</title>
     </head>
     <body>
         <script>
-            function solution(s){
-                let answer="YES";
-                
+            function solution(s) {
+                let answer = 'YES';
+                s = s.toLowerCase();
+                let N = s.length;
+                for (let i = 0; i < Math.floor(N / 2); i++) {
+                    if (s[i] !== s[N - 1 - i]) return 'NO';
+                }
                 return answer;
             }
-            
-            let str="gooG";
+
+            let str = 'gooG';
             console.log(solution(str));
         </script>
     </body>
 </html>
- -->
-
-
