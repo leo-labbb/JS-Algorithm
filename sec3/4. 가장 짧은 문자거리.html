@@ -1,17 +1,28 @@
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>출력결과</title>
     </head>
     <body>
         <script>
-            function solution(s, t){
-                let answer=[];
-              
+            function solution(s, t) {
+                let answer = [],
+                    targets = [],
+                    temp = [];
+                for (let i = 0; i < s.length; i++) {
+                    if (s[i] === t) targets.push(i);
+                }
+                for (let i = 0; i < s.length; i++) {
+                    for (let j = 0; j < targets.length; j++) {
+                        temp.push(Math.abs(i - targets[j]));
+                    }
+                    answer.push(Math.min(...temp));
+                    temp = [];
+                }
                 return answer;
             }
-            
-            let str="teachermode";
+
+            let str = 'teachermode';
             console.log(solution(str, 'e'));
         </script>
     </body>

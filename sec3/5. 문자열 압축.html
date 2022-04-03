@@ -1,17 +1,29 @@
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>출력결과</title>
     </head>
     <body>
         <script>
-            function solution(s){
-                let answer="";
-                
+            function solution(s) {
+                let answer = '';
+                let count = 1;
+                for (let i = 0; i < s.length; i++) {
+                    if (i === 0) {
+                        answer += s[i];
+                    } else {
+                        if (s[i] === s[i - 1]) {
+                            count++;
+                        } else {
+                            answer += String(count) + s[i];
+                            count = 1;
+                        }
+                    }
+                }
                 return answer;
             }
-            
-            let str="KKHSSSSSSSE";
+
+            let str = 'KKHSSSSSSSE';
             console.log(solution(str));
         </script>
     </body>

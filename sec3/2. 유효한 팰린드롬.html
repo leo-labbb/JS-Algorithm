@@ -1,17 +1,30 @@
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>출력결과</title>
     </head>
     <body>
         <script>
-            function solution(s){
-                let answer="YES";
-                
+            function solution(s) {
+                let answer = 'YES',
+                    N = s.length;
+                s = s.toLowerCase().replace(/[^a-z]/g, '');
+                if (s.split('').reverse().join('') !== s) return 'NO';
+                // for (let i = 0; i < Math.floor(N / 2); i++) {
+                //     if (
+                //         s[i] === ' ' ||
+                //         s[i] === ',' ||
+                //         s[i] === ':' ||
+                //         s[i] === ';'
+                //     )
+                //         continue;
+                //     else if (s[i] !== s[N - 1 - i]) return 'NO';
+                // }
+
                 return answer;
             }
-            
-            let str="found7, time: study; Yduts; emit, 7Dnuof";
+
+            let str = 'found7, time: study; Yduts; emit, 7Dnuof';
             console.log(solution(str));
         </script>
     </body>
