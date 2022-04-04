@@ -1,18 +1,37 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>출력결과</title>
-    </head>
-    <body>
-        <script>
-            function solution(test){
-                let answer=0;
-                
-                return answer;
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(test) {
+        let answer = 0;
+        let y = test.length; // 테스트 횟수
+        let x = test[0].length; // 학생 수
+        for (let i = 1; i <= x; i++) {
+          for (let j = 1; j <= x; j++) {
+            let cnt = 0;
+            for (let k = 0; k < y; k++) {
+              let pi = (pj = 0);
+              for (let s = 0; s < x; s++) {
+                if (test[k][s] === i) pi = s;
+                if (test[k][s] === j) pj = s;
+              }
+              if (pi > pj) cnt++;
             }
-            
-            let arr=[[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
-            console.log(solution(arr));
-        </script>
-    </body>
+            if (cnt === y) answer++;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [
+        [3, 4, 1, 2],
+        [4, 3, 2, 1],
+        [3, 1, 4, 2],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
 </html>
