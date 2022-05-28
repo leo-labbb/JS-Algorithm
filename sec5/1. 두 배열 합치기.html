@@ -7,6 +7,7 @@
     <script>
       function solution(arr1, arr2) {
         let answer = []
+        answer = [...arr1, ...arr2].sort((a, b) => a - b)
 
         return answer
       }
