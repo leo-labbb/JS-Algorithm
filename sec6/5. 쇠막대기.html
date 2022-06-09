@@ -8,6 +8,7 @@
       function solution(s) {
         let answer = 0;
         let stack = [];
+        let temp;
         for (let i = 0; i < s.length; i++) {
           if (s[i] === '(') stack.push('(');
           else {
