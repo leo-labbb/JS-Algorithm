@@ -6,15 +6,15 @@
   <body>
     <script>
       function solution(s) {
-        let answer;
+        let result;
         let stack = [];
         for (let x of s) {
           if (x === ')') {
             while (stack.pop() !== '(');
           } else stack.push(x);
         }
-        answer = stack.join('');
-        return answer;
+        result = stack.join('');
+        return result;
       }
 
       let str = '(A(BC)D)EF(GR(H)(IJ)K)LM(N)';
